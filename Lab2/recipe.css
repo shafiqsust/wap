@@ -1,0 +1,74 @@
+/*
+course: WAP 
+name: Md Shafiqul Islam
+section: February Entry 2022
+*/
+body {
+    font-family: Georgia, 'Garamond','Times New Roman', Times, serif;
+    font-size: 11pt;
+    color: #404040;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',Helvetica,  Arial, sans-serif;
+    text-decoration: underline;
+    background-color: #F0F0F0;
+    color: #A4A400;
+}
+h1{
+    font-size: 22pt;
+}
+h2{
+    font-size: 18pt;
+}
+a {
+    color: #A4A400;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container{
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+header h1{
+    text-align: center;
+}
+
+ul.user-comments{
+    list-style: none;
+    margin: 15px 40px 15px 0px;
+}
+ul.user-comments li{
+    margin: 10px;
+    background-color: #ffffa8;
+    font-style: italic;
+    line-height: 18px;
+}
+ul.user-comments li span{
+    display: block;
+    padding-top: 15px;
+}
+
+ul.links {
+    list-style: none;
+}
+
+.copyright{
+    width: 25%;
+    text-align: right;
+    font-family: sans-serif;
+}
+.strikethrough{
+    text-decoration: line-through;
+}
+#ingredients li span{
+    cursor: help;
+}

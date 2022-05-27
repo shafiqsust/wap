@@ -1,0 +1,125 @@
+/*
+course: WAP 
+name: Md Shafiqul Islam
+section: February Entry 2022
+*/
+body {
+    background: #3c3c3c;
+    color: aliceblue;
+}
+
+h1 {
+    font-size: 36pt;
+    color: rgb(62, 153, 214);
+}
+
+p {
+    color: aliceblue;
+}
+
+p span {
+    color: yellow;
+}
+
+h2 {
+    color: rgb(62, 153, 214);
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+a {
+    color: #fd0fa0;
+}
+
+span {
+    font-style: italic;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p::first-letter {
+    font-size: 20px;
+}
+
+dl {
+    margin-top: 5px;
+}
+
+dt {
+    color: yellow;
+}
+.header{
+    min-height: 120px; 
+    background-color: #212c5c; 
+    padding: 10px;
+    margin: 0px;
+    border-bottom: 2px solid #000;
+}
+header .pic{
+    width: 30%;
+    float: left; 
+    text-align: center;
+}
+header .brief-text{
+    margin-left: 15px;
+    font-size: 20px;
+}
+.brief-text h1{
+    margin-bottom: 10px;
+    color: #fff;
+}
+header .pic img{
+    width: 170px;
+    height: 170px;
+    margin-right: 20px;
+}
+.aboutme span{
+    font-style: italic;
+    font-weight: bold;
+    color: darkorange;
+}
+#wrapper{
+    clear: both;
+    padding: 15px;
+}
+.mood{
+    clear: both;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+}
+.col{
+    float: left;
+    padding: 10px;
+}
+.clearfix{
+    clear: both;
+    width: 100%;
+}
+ol.decrementing {
+    padding: 0;
+    margin: 0;
+    list-style-type: decimal !ie7;
+    margin-left: 20px !ie7;
+    counter-reset:item 6; /* one higher than you need */
+    width: 250px;
+    border: 1px solid #000;
+}
+ol.decrementing > li {
+    counter-increment:item -1;
+    text-align: center;
+}
+ol.decrementing > li:before {
+    content:counter(item) ". ";
+    float: left;
+    width: 30px; background: #eee;
+}
