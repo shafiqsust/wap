@@ -4,14 +4,354 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="MD SHAFIQUL ISLAM">
     <title>DOM Assignment</title>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        //1. Create HTML Elements
+        $(function(){
+            //1. Create HTML Elements
+            let innerDIV2 = document.createElement("div"); //Using DOM
+            innerDIV2.setAttribute("id", "innerDIV2");
+            innerDIV2.innerHTML = "#div2 element as child of #myDiv & sibling of innerDIV";
+            $("#myDIV").append(innerDIV2);
+
+            let h1 = document.createElement("h1"); //Using DOM
+            h1.setAttribute("id", "h1");
+            $(h1).html("Header h1"); 
+            let h2 = document.createElement("h2"); //Using DOM
+            h2.setAttribute("id", "h2");
+            h2.innerHTML = "Header h2";
+
+            let h3 = document.createElement("h3"); //Using DOM
+            h3.setAttribute("id", "h3");
+            $(h3).html("Header h3"); 
+            let h4 = document.createElement("h4"); //Using DOM
+            h4.setAttribute("id", "h4");
+            $(h4).html("Header h4"); 
+            let h5 = document.createElement("h5"); //Using DOM
+            h5.setAttribute("id", "h5");
+            $(h5).html("Header h5"); 
+            let h6 = document.createElement("h6"); //Using DOM
+            h6.setAttribute("id", "h6");
+            $(h6).html("Header h6"); 
+
+            $("#innerDIV2").append(h1);
+
+            $(h1).after(h2, h3, h4, h5, h6);
+
+            var para = $("<p></p>").text("Paragraph: Lorem ipsum.....");  // Create with jQuery
+            var anchor = $("<a></a>").text("Anchor: My Homepage");  // Create with jQuery
+            $(anchor).attr("href", "https://shafiqsust.github.io/wap/")
+            $(anchor).css("color", "Red")
+            $("#innerDIV2").append(para, anchor);
+
+            let img = document.createElement("img"); //Using DOM
+            img.setAttribute("id", "imgId");
+            $(img).attr("src", "../../images/shafiq.jpg");
+            $(img).attr("style", "width:120px;margin-left:20px;");
+            $(anchor).after(img);
+
+            //Table
+            var mytable = $("<h2></h2>").text("My Table");  // Create with jQuery
+            let table = document.createElement("table"); //Using DOM
+            //$(table).css()
+            $(table).addClass("table-css")
+            $(table).html("<tr><th> Col-1</th><th> Col-2</th></tr><tr><td> Col-1</td><td> Col-2</td></tr><tr><td> Col-1</td><td> Col-2</td></tr><tr><td> Col-1</td><td> Col-2</td></tr>")
+
+            //UL list
+            var mylisth2 = $("<h3></h3>").text("My Unordered List (items are bold)");  // Create with jQuery
+            let myULList = document.createElement("ul"); //Using DOM
+            //$(table).css()
+            $(myULList).addClass("ul-list")
+            $(myULList).html("<li>Item-1</li><li>Item-2</li><li>Item-3</li><li>Item-4</li>")
+
+
+            // Ordered List
+            
+            var mylisth3 = $("<h3></h3>").text("My Ordered List (items are normal)");  // Create with jQuery
+            let myOLList = document.createElement("ol"); //Using DOM
+            //$(table).css()
+            
+            $(myOLList).html("<li>Item-1</li><li>Item-2</li><li>Item-3</li><li>Item-4</li>")
+            $("#innerDIV2").after(mytable, table, mylisth2, myULList, mylisth3, myOLList);
+
+            // Form & controls            
+            var myformh = $("<h2></h2>").text("My Form");  // Create with jQuery
+            $(myOLList).after(myformh)
+
+            var myform = $("<form></form>")
+            $(myform).attr("id", "myForm")
+            $(myform).append("<label>Input Text: </label><input type='text' id='textfield' placeholder='Enter any text'>")
+
+            $(myformh).after(myform)
+
+            myform.append($('<h4 />', { class: 'degree', text: 'Degree:' }))
+
+            var radio1 = document.createElement('input'); // using DOM
+            radio1.setAttribute('type', 'radio');           
+            radio1.setAttribute('name', 'degree');
+            radio1.setAttribute('value', 'Graduate');
+            radio1.setAttribute('id', 'radio1');
+
+            var submit = document.createElement('input');
+            submit.setAttribute('type', 'submit');
+            submit.setAttribute("value", "Submit");
+            submit.setAttribute('id', 'btnSubmit');
+
+            myform.append(radio1);
+
+            myform.append(                
+                $('<input />', { id: 'radio2', name: 'degree', value:'Postgrad', type: 'radio' }),
+                $('<input />', { id: 'radio3', name: 'degree',value:'TM', type: 'radio' }),
+
+                $('<h4 />').text("Select Courses:"),
+                $('<input />', { id: 'chkbox1', name: 'course', value:'WAP', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox2', name: 'course', value:'WAA', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox3', name: 'course', value:'EA', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox4', name: 'course', value:'SA', type: 'checkbox' }),
+
+                $('<h4 />').text("Select Box:"),
+                $('<select />', { id: 'sellist', name: 'sellist' })
+                .append('<option value="Option1">Option 1</option>')
+                .append('<option value="Option2">Option 2</option>')
+                .append('<option value="Option3">Option 3</option>'),
+                $('<br />'),
+                $('<input />', { id: 'savebutton', class:'btn', type: 'submit', value: 'Save' })
+            )
+            let rdo1lbl = $("<label></label>").text("Graduate");
+            $(radio1).after(rdo1lbl);
+            $(radio2).after($("<label></label>").text("Post-Graduate"))
+            $(radio3).after($("<label></label>").text("Medication"))
+
+            // labeling Checkboxes
+            $(chkbox1).after($("<label></label>").text("WAP"))
+            $(chkbox2).after($("<label></label>").text("WAA"))
+            $(chkbox3).after($("<label></label>").text("EA"))
+            $(chkbox4).after($("<span />").text("SA"))
+
+           // 2. Update HTML Elements
+           $("#btnUpdate").on("click", function(){
+                
+                //Update id,name.... any attribute
+                document.getElementById('testId').id = 'div2'; // using DOM
+                
+                //Update value of text field
+                $("#updateText").val("New Value").css("color", "blue")
+
+                //Update innerHTML
+                $(".testClass div").last().html("<a></a>").text("Updated html contents...")
+                .css({
+                        "color": "red",
+                        "background-color": "#f5f5f5",
+                        "font-family": "Arial",
+                        "font-size": "20px",
+                        "padding": "5px"
+                        })
+                        
+                        //.replaceWith( "<h2>Replacing with New heading</h2>" );
+                       //textInput.replaceWith(textInputLabel);
+               
+                //Add class
+                $(".testClass span").addClass("divcss").text();
+                $(".testClass span").append(" <br> Added claas: divcss<br>")
+                
+                //replace class
+                $('.testClass span').attr('class', 'newClass');
+
+                $(".testClass span").append(" <br> Then replaced  divcss with newClass<br>")
+                
+                //Remove class
+                $(".testClass div").removeClass("dd");
+
+                $(".testClass div").first().append("-> Removed  'dd' from this div")
+            
+                //5. Replace Element.
+                 //P element with div
+                    $("p.repwithdiv").replaceWith( "<div>P replaced with div</div>" );
+
+                 // Copy the contents of table and show them as ul
+                 let newUl = $("<ul>").attr("id", "ul4mtbl").append("<h4>Table converted to UL</h4>");
+                 $(".table-list").after(newUl);
+                 
+                //run through each row
+                $('.table-list tr').each(function () {
+
+                //processing this row
+                //how to progress through each cell(table td) 
+                    $(this).find('td').each(function () {                        
+
+                        const tdtxts = $(this).text();
+                        //console.log("td val: ",tdtxts)
+                        $(newUl).append("<li>" + tdtxts +"</li>")
+                        //console.log(" ul - ",$(newUl).html())
+                    });
+                });
+               
+                
+           });
+                     
+            
+            
+            // 3. Remove HTML Elements
+
+            //Remove second element of list in ul. // Item-2 removed
+            $(".ul-list li").first().next().remove();            
+
+            //Remove the last child/first child of div
+            $("#innerDIV").append('<p id="thirdP"> Third P </p>') // adding Third para sing jQuery
+            $('#innerDIV p:first-child').remove(); // removing first para of #innerDIV
+            $('#innerDIV p:last-child').remove();  // removing last para of #innerDIV
+
+            //4. Show/Hide Element
+            //Toggle the display if it is shown- hide, if it is hidden – show.
+
+            $("#tglDiv button").on("click", function(){
+                $("#tglDiv p").toggle("slow");
+                //$("p").toggle();
+
+            });
+
+            //6. Copy content from one element to another element
+            //Swap         
+
+            $("#btnSwap").on("click", function(){
+                var nameText = $("input[name=Name]").val();                
+                var aliasText = $("input[name=Alias]").val();
+
+                $("input[name=Name]").val(aliasText)
+                $("input[name=Alias]").val(nameText)
+
+            });
+            // Append
+            $("#btnAppend").on("click", function(){
+                const nameText = $("input[name=Name]").val();           
+                
+                const aliasText = $("input[name=Alias]").val();
+                
+                $("input[name=Alias]").val(aliasText+ " " + nameText)
+
+            })
+
+
         
+       
+
+        });
     </script>
+    <style>
+        .table-css {
+            border: 1px solid rgb(50, 78, 168);
+            width: 100%;
+        }
+        
+        table.table-css th, table.table-css td{
+            border: 1px solid rgb(103, 105, 112);
+            padding: 5px;
+            color: blueviolet;
+            text-align: center;
+        }
+        table.table-css th{
+            background-color: cadetblue;
+            color: #fff;
+        }
+        .ul-list li{
+            font-weight: bold;
+        }
+        #myForm {
+            border:2px dashed rgb(71, 64, 64);
+            padding: 20px;
+        }
+        .btn, button{
+            margin-top: 20px;
+            padding: 5px 20px;
+            background-color: crimson;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+
+        }
+        .btn:hover{
+            background-color: rgb(20, 140, 220);
+        }
+        button{
+            background-color: rgb(221, 200, 10);
+        }
+
+        .divcss {
+            font-size: 18px;
+            color: rgb(163, 9, 125);
+            border: 1px solid greenyellow;
+        }
+        .newClass{
+            background-color: blanchedalmond;
+            color: blue;
+        }
+        .dd{
+            border: 2px solid pink;
+            background-color: #98bf21;
+            margin: 20px 0;
+            padding: 10px;
+        }
+        input{
+            padding: 5px;
+            border: 2px solid black;
+        }
+        #tglDiv{
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+
+    <div id="myDIV" class="myClass" name="myName">
+        <div id="innerDIV">
+        <p id="firstP"> First P </p>
+        <p id="secondP" class="p2"> Second P </p>
+        
+        </div>
+    </div>
+
+    <div class="testClass" id="testId">
+        <span>Some text here</span>
+        <div class="dd">Css class will be removed this div</div>
+        <div id="tglDiv">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto eius ducimus soluta, cumque adipisci possimus odio repudiandae nostrum quas quaerat. 
+                Expedita iure odit fugiat esse commodi laborum aliquid tenetur nesciunt.</p>
+            <button>&laquo; Toggle &raquo;</button>
+        </div>
+
+        <hr />
+        <p class="repwithdiv">We are going to replace this p with div</p>
+
+        <input id="updateText" type="text" placeholder="This is for update value test" value="Initial value">
+      
+        <button id="btnUpdate">Update HTML Element</button>
+
+        <h3> Table Data (to convert ul)</h3>
+        <table class="table-list" border="1">
+            <tr>
+            <td>First Row Col 1</td>
+            <td>First Row Col 2</td>
+            </tr>
+            <tr>
+            <td>Second Row Col 1</td>
+            <td>Second Row Col 2</td>
+            </tr>
+        </table>
+
+        <h3>6. Copy content from one element to another element</h3>
+
+        
+           <p> Name:<input name="Name" value="Name field value"></p>
+           <p> Alias:<input name="Alias" value="Alias field value"></p>
+           <button id="btnSwap">Swap</button>
+           <button id="btnAppend">Append</button>
+
+
+
+    </div>
+        
     
 </body>
 </html>
