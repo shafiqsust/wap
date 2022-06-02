@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Array</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+        let  array= ["apple", "banana","pear"];
+        
+        let li = "";
+        for(let element of array){
+
+            li += "<li>" + element + "</li>\n"
+        }
+
+        //console.log("<ul>\n"+ li + "</ul>");
+        //$("#divID").append("<ul>").html(li);
+
+        let objectArray = [{name:"apple", code:"ap"}, {name:"banana", code:"bn"}, {name:"pear",code:"pr"}];
+        const oblist = $("<select />").attr("id", "list")
+        let nli ="";
+        for(let element of objectArray){
+            $(oblist).append($("<option name='"+element.code+"'></option>").text(element.name))
+        //console.log(element.name);
+
+            //$("#list").append(nli);
+        }
+        //console.log(nli);
+        //$("#list").html(nli)
+        $("#divID").append(oblist);
+
+        });
+        
+    </script>
+</head>
+<body>
+    <div id="divID">
+        <h4>Array to list</h4>
+    </div>
+
+    
+</body>
+</html>
