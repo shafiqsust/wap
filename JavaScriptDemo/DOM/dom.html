@@ -35,11 +35,11 @@
             h6.setAttribute("id", "h6");
             $(h6).html("Header h6"); 
 
-            $("#innerDIV2").append(h1);
+            $("#innerDIV2").append(h1,h2, h3, h4, h5, h6);
 
-            $(h1).after(h2, h3, h4, h5, h6);
+            //$(h1).after(h2, h3, h4, h5, h6);
 
-            var para = $("<p></p>").text("Paragraph: Lorem ipsum.....");  // Create with jQuery
+            var para = $("<p>Paragraph: Lorem ipsum.....</p>");  // Create with jQuery
             var anchor = $("<a></a>").text("Anchor: My Homepage");  // Create with jQuery
             $(anchor).attr("href", "https://shafiqsust.github.io/wap/")
             $(anchor).css("color", "Red")
@@ -76,58 +76,88 @@
             $("#innerDIV2").after(mytable, table, mylisth2, myULList, mylisth3, myOLList);
 
             // Form & controls            
-            var myformh = $("<h2></h2>").text("My Form");  // Create with jQuery
+            var myformh = $("<h2></h2>").text("My Form (DOM assignment)");  // Create with jQuery
             $(myOLList).after(myformh)
 
             var myform = $("<form></form>")
             $(myform).attr("id", "myForm")
-            $(myform).append("<label>Input Text: </label><input type='text' id='textfield' placeholder='Enter any text'>")
+            $(myform).append("<h4>Input Text: </h4><input type='text' id='textfield' placeholder='Enter any text'>")
 
             $(myformh).after(myform)
 
-            myform.append($('<h4 />', { class: 'degree', text: 'Degree:' }))
+            myform.append($('<h4>', { class: 'degree', text: 'Degree:' }))
 
             var radio1 = document.createElement('input'); // using DOM
             radio1.setAttribute('type', 'radio');           
             radio1.setAttribute('name', 'degree');
             radio1.setAttribute('value', 'Graduate');
             radio1.setAttribute('id', 'radio1');
+            radio1.setAttribute('class', 'radios');
 
-            var submit = document.createElement('input');
-            submit.setAttribute('type', 'submit');
-            submit.setAttribute("value", "Submit");
-            submit.setAttribute('id', 'btnSubmit');
+            // var submit = document.createElement('input');
+            // submit.setAttribute('type', 'submit');
+            // submit.setAttribute("value", "Submit");
+            // submit.setAttribute('id', 'btnSubmit');
 
             myform.append(radio1);
 
+            // jQuery Style
             myform.append(                
-                $('<input />', { id: 'radio2', name: 'degree', value:'Postgrad', type: 'radio' }),
-                $('<input />', { id: 'radio3', name: 'degree',value:'TM', type: 'radio' }),
+                $('<input />', { id: 'radio2', class:'radios', name: 'degree', value:'Post-Graduate', type: 'radio' }),
+                $('<input />', { id: 'radio3', class:'radios', name: 'degree', value:'TM', type: 'radio' }),
 
-                $('<h4 />').text("Select Courses:"),
-                $('<input />', { id: 'chkbox1', name: 'course', value:'WAP', type: 'checkbox' }),
-                $('<input />', { id: 'chkbox2', name: 'course', value:'WAA', type: 'checkbox' }),
-                $('<input />', { id: 'chkbox3', name: 'course', value:'EA', type: 'checkbox' }),
-                $('<input />', { id: 'chkbox4', name: 'course', value:'SA', type: 'checkbox' }),
+                $('<h4 />', { id: 'courseheader', text:"Select Courses:"}),
+                $('<div>', { id: 'chkBoxes'}),
+                
 
                 $('<h4 />').text("Select Box:"),
+
                 $('<select />', { id: 'sellist', name: 'sellist' })
                 .append('<option value="Option1">Option 1</option>')
                 .append('<option value="Option2">Option 2</option>')
                 .append('<option value="Option3">Option 3</option>'),
+                $('<h4 />').text("Your message:"),
+                //$('<br /><br />'),
+                $('<textarea />', { id: 'txtArea', name: 'txtArea', rows:'5', cols:'30' }),
                 $('<br />'),
-                $('<input />', { id: 'savebutton', class:'btn', type: 'submit', value: 'Save' })
+                $('<input />', { id: 'savebutton', class:'btn', type: 'button', value: 'Show user\'s input' })
             )
-            let rdo1lbl = $("<label></label>").text("Graduate");
+            $("#chkBoxes").append(
+                $('<input />', { id: 'chkbox1', class:'chkbox', name: 'course', value:'WAP', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox2', class:'chkbox', name: 'course', value:'WAA', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox3', class:'chkbox', name: 'course', value:'EA', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox4', class:'chkbox', name: 'course', value:'SA', type: 'checkbox' }),)
+            
+            let rdo1lbl = $("<label class='ival'></label>").text("Graduate");
             $(radio1).after(rdo1lbl);
-            $(radio2).after($("<label></label>").text("Post-Graduate"))
-            $(radio3).after($("<label></label>").text("Medication"))
+            $(radio2).after($("<label class='ival'></label>").text("Post-Graduate"))
+            $(radio3).after($("<label class='ival'></label>").text("Meditation"))
 
             // labeling Checkboxes
-            $(chkbox1).after($("<label></label>").text("WAP"))
-            $(chkbox2).after($("<label></label>").text("WAA"))
-            $(chkbox3).after($("<label></label>").text("EA"))
-            $(chkbox4).after($("<span />").text("SA"))
+            $(chkbox1).after($("<label class='ival'></label>").text("WAP"))
+            $(chkbox2).after($("<label class='ival'></label>").text("WAA"))
+            $(chkbox3).after($("<label class='ival'></label>").text("EA"))
+            $(chkbox4).after($("<label class='ival'></label>").text("SA"))
+
+            //, show all the values entered/selected by User
+            $("#savebutton").on("click", function(){
+
+                console.log("in savebutton event")
+                const textval = $("#textfield").val();
+                const chkedItem = $(".chkbox:checked").val();
+                const radioval = $(".radios:checked").val();
+                const selectedVal = $("#sellist").val();
+                const txtAreaVal = $("#txtArea").val();
+                //$("#textfield").html("<label>"+ textval +"</label>")
+                $("#textfield").replaceWith("<span>"+ textval +"</span>");
+                $(".chkbox, .radios").replaceWith("<span></span>");
+                $('.ival').hide()
+                $(".degree").after("<span>"+ radioval +"</span>")
+                $("#chkBoxes").after("<span>"+ chkedItem +"</span>");
+                $("#sellist").replaceWith("<span>"+ selectedVal +"</span>");
+                $("#txtArea").replaceWith("<span>"+ txtAreaVal +"</span>");
+
+            })
 
            // 2. Update HTML Elements
            $("#btnUpdate").on("click", function(){
@@ -227,13 +257,10 @@
                 const nameText = $("input[name=Name]").val();           
                 
                 const aliasText = $("input[name=Alias]").val();
-                
+
                 $("input[name=Alias]").val(aliasText+ " " + nameText)
 
-            })
-
-
-        
+            })      
        
 
         });
@@ -311,7 +338,7 @@
         
         </div>
     </div>
-
+  <!-- Update Inner HTML-->
     <div class="testClass" id="testId">
         <span>Some text here</span>
         <div class="dd">Css class will be removed this div</div>
@@ -322,6 +349,7 @@
         </div>
 
         <hr />
+        <!-- 5 -->
         <p class="repwithdiv">We are going to replace this p with div</p>
 
         <input id="updateText" type="text" placeholder="This is for update value test" value="Initial value">

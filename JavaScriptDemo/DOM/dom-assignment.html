@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="MD SHAFIQUL ISLAM">
+    <title>DOM Assignment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+                                    
+            // Form & controls            
+            var myformh = $("<h2></h2>").text("My Form (DOM assignment)");  // Create with jQuery
+            $("#myDIV").after(myformh)
+
+            var myform = $("<form></form>")
+            $(myform).attr("id", "myForm")
+            $(myform).append("<h4>Input Text: </h4><input type='text' id='textfield' placeholder='Enter any text'>")
+
+            $(myformh).after(myform)
+
+            myform.append($('<h4>', { class: 'degree', text: 'Degree:' }))
+
+            var radio1 = document.createElement('input'); // using DOM
+            radio1.setAttribute('type', 'radio');           
+            radio1.setAttribute('name', 'degree');
+            radio1.setAttribute('value', 'Graduate');
+            radio1.setAttribute('id', 'radio1');
+            radio1.setAttribute('class', 'radios');
+
+            // var submit = document.createElement('input');
+            // submit.setAttribute('type', 'submit');
+            // submit.setAttribute("value", "Submit");
+            // submit.setAttribute('id', 'btnSubmit');
+
+            myform.append(radio1);
+
+            // jQuery Style
+            myform.append(                
+                $('<input />', { id: 'radio2', class:'radios', name: 'degree', value:'Post-Graduate', type: 'radio' }),
+                $('<input />', { id: 'radio3', class:'radios', name: 'degree', value:'TM', type: 'radio' }),
+
+                $('<h4 />', { id: 'courseheader', text:"Select Courses:"}),
+                $('<div>', { id: 'chkBoxes'}),
+                
+
+                $('<h4 />').text("Select Box:"),
+
+                $('<select />', { id: 'sellist', name: 'sellist' })
+                .append('<option value="Option1">Option 1</option>')
+                .append('<option value="Option2">Option 2</option>')
+                .append('<option value="Option3">Option 3</option>'),
+                $('<h4 />').text("Your message:"),
+                //$('<br /><br />'),
+                $('<textarea />', { id: 'txtArea', name: 'txtArea', rows:'5', cols:'30' }),
+                $('<br />'),
+                $('<input />', { id: 'savebutton', class:'btn', type: 'button', value: 'Show user\'s input' })
+            )
+            $("#chkBoxes").append(
+                $('<input />', { id: 'chkbox1', class:'chkbox', name: 'course', value:'WAP', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox2', class:'chkbox', name: 'course', value:'WAA', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox3', class:'chkbox', name: 'course', value:'EA', type: 'checkbox' }),
+                $('<input />', { id: 'chkbox4', class:'chkbox', name: 'course', value:'SA', type: 'checkbox' }),)
+            
+            let rdo1lbl = $("<label class='ival'></label>").text("Graduate");
+            $(radio1).after(rdo1lbl);
+            $(radio2).after($("<label class='ival'></label>").text("Post-Graduate"))
+            $(radio3).after($("<label class='ival'></label>").text("Meditation"))
+
+            // labeling Checkboxes
+            $(chkbox1).after($("<label class='ival'></label>").text("WAP"))
+            $(chkbox2).after($("<label class='ival'></label>").text("WAA"))
+            $(chkbox3).after($("<label class='ival'></label>").text("EA"))
+            $(chkbox4).after($("<label class='ival'></label>").text("SA"))
+
+            //, show all the values entered/selected by User
+            $("#savebutton").on("click", function(){
+
+                console.log("in savebutton event")
+                const textval = $("#textfield").val();
+                const chkedItem = $(".chkbox:checked").val();
+                const radioval = $(".radios:checked").val();
+                const selectedVal = $("#sellist").val();
+                const txtAreaVal = $("#txtArea").val();
+                //$("#textfield").html("<label>"+ textval +"</label>")
+                $("#textfield").replaceWith("<span>"+ textval +"</span>");
+                $(".chkbox, .radios").replaceWith("<span></span>");
+                $('.ival').hide()
+                $(".degree").after("<span>"+ radioval +"</span>")
+                $("#chkBoxes").after("<span>"+ chkedItem +"</span>");
+                $("#sellist").replaceWith("<span>"+ selectedVal +"</span>");
+                $("#txtArea").replaceWith("<span>"+ txtAreaVal +"</span>");
+
+            })              
+
+        });
+    </script>
+    <style>
+        .table-css {
+            border: 1px solid rgb(50, 78, 168);
+            width: 100%;
+        }
+        
+        table.table-css th, table.table-css td{
+            border: 1px solid rgb(103, 105, 112);
+            padding: 5px;
+            color: blueviolet;
+            text-align: center;
+        }
+        table.table-css th{
+            background-color: cadetblue;
+            color: #fff;
+        }
+        .ul-list li{
+            font-weight: bold;
+        }
+        #myForm {
+            border:2px dashed rgb(71, 64, 64);
+            padding: 20px;
+        }
+        .btn, button{
+            margin-top: 20px;
+            padding: 5px 20px;
+            background-color: crimson;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+
+        }
+        .btn:hover{
+            background-color: rgb(20, 140, 220);
+        }
+        button{
+            background-color: rgb(221, 200, 10);
+        }
+
+        .divcss {
+            font-size: 18px;
+            color: rgb(163, 9, 125);
+            border: 1px solid greenyellow;
+        }
+        .newClass{
+            background-color: blanchedalmond;
+            color: blue;
+        }
+        .dd{
+            border: 2px solid pink;
+            background-color: #98bf21;
+            margin: 20px 0;
+            padding: 10px;
+        }
+        input{
+            padding: 5px;
+            border: 2px solid black;
+        }
+        #tglDiv{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myDIV" class="myClass" name="myName">
+        <div id="innerDIV">
+        
+        
+        </div>
+    </div>
+ 
+    
+        
+    
+</body>
+</html>

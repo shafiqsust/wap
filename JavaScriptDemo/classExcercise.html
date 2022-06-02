@@ -56,12 +56,13 @@ $(function(){
 
             let objArray  = [{name:"anne", age: 30}, {name:"Adam", age: 25}, {name:"Salman", age: 28}];
 
-            let sortArr =  objArray.sort(mySort);
+            //let sortArr =  objArray.sort(mySort);
 
-            console.log(sortArr)
+            //console.log(sortArr)
+            let objArrAges= objArray.map(a=> a.age);
+            console.log("Ages obj: ", objArrAges)
 
-
-            const characters = [
+const characters = [
   { name: 'Batman', team: 'Justice League' },
   { name: 'Hulk', team: 'Avengers' },
   { name: 'Flash', team: 'Justice League' },
@@ -69,7 +70,7 @@ $(function(){
   { name: 'Deadpool', team: 'X-Force' }
 ];
 
-const avengers = characters.filter(character => character.team === 'Avengers');
+const avengers = characters.map(character => character.team);
 
 console.log(avengers)
 
