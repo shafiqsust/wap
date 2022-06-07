@@ -7,18 +7,29 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-        let array = ["apple", "banana", "pear"];
-        let arrObj = [{"id":1, "Name":"John", "Age":21},{"id":2, "Name":"Jim", "Age":22}]
         let objectArray =[{name:"apple",code:'ap'},{name:"banana",code:"bn"},{name:"pear",code:'pr'}];
+        
+        let array = ["apple", "banana", "pear"];
+        
+        let arrObj = [{"id":1, "Name":"John", "Age":21},{"id":2, "Name":"Jim", "Age":22}]
+       
+        
         $(function(){
             let ul = document.createElement("ul");
             let li = "";
             for(let item of array){
                 li += "<li>"+item+"</li>";
             }
-            ul.innerHTML = li;
-            $('#list').html(ul);
+            //ul.innerHTML = li;// DOM
+            $(ul).html(li)
+
+            //$('#list').html(ul); 
+            $('#list').append(ul) // JQuery
+
+
+
             createTable(arrObj);
+
             $('#sort-by-age').click(()=>{
                 arrObj.sort((a,b)=>a.Age-b.Age);
                 createTable(arrObj);
@@ -49,6 +60,7 @@
                 table += "<th>"+key+"</th>";
             }
             table += "</tr>";
+            
             for(let item of arrObj){
                 table += "<tr>";
                 for(let val in item){
@@ -67,7 +79,9 @@
     <input type="button" id="sort-by-name" value="Sort by Name" />
     <div id="tbl"></div>
     <h3>List example:</h3>
+
     <div id="list"></div>
+
     <h3>Select example:</h3>
     <div id="select"></div>
 </body>

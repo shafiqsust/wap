@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function() {
+        $("#textbox").on("mouseout", sayHi); // bound to text box here
+        $("#submitBtn").on("click", sayHi); // bound to submit button here
+        }); //if use ‘on’ dynamically generated items also get handler
+        function sayHi() {
+        // sayHi knows what object it was called on
+        this.value = "sayHi" + this.id;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="exampleoutput">
+        <input id="textbox" />
+        <input type="submit" id="submitBtn" value="Save">
+       </div>
+</body>
+</html>

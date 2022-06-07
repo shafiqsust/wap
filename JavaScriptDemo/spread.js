@@ -1,6 +1,6 @@
 let array1 =  [{a:1, b:2}, {c:3, d:4}]; 
 
-let clonedArray = [...array1];
+let clonedArray = [...array1]; // shalow copy
 
 //array1[0].b = 30; // will update both array's b to 30
 //var newArr = array1;

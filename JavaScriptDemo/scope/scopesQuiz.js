@@ -1,5 +1,6 @@
 //Sample Comments
 
+// var x;
 // function main() {//var x;
 //     console.log("x1 is:" + x);//undefined? x is declared but not yet assigned, 
 //     //there is local varaible with same name.
@@ -10,19 +11,20 @@
 //         console.log("x3 is:" + x);//30?local variable is reassigned.
 //     }
 //     console.log("x4 is:" + x);//30 (209) var is function scope, so you can read it out of block
+
 //     var x = 40;
 //     var f = function (x) {
 //         console.log("x5 is:" + x);//50 x is parameter, x is called with 50(217)
 //     };
 //     f(50);
-//     console.log("x6 is:" + x);//40 (213)local variable is assigned 40, 
+//     console.log("x6 is:" + x);//40 local variable is assigned 40, 
 // }
 // main();
-// console.log("x7 is:" + x);//10 (213, 209) local declaration of x inside the function.
+// console.log("x7 is:" + x);//10 (213, 209) local declaration of x inside the function
 
 
 
-// 1. 
+// // 1. 
 // let grapes = "green"; 
 
 // function fruits(){ 
@@ -38,121 +40,89 @@
 // let x = 10;
 
 // function globalVar(){ 
-
 //     return function(){ 
-
 //        return x; 
-
 //     } 
-
 // } 
 
 // x = 20; 
-
-// let fn = globalVar(); 
-
-// console.log(fn ()); // 20 - x is changed at line 50 and then function called happen in line 54
+// let fn = globalVar();
+// console.log(fn()); // 20 - x is changed at line 50 and then function called happen in line 54
 
  
 
 // 3. 
 // function sport(message){ 
-
 //     message = "Hi"; 
-
 //     return function(message){ 
-
 //         return message; 
-
-//     } 
-
+//     }   
 // } 
 
 // let sportFn = sport("Hello"); 
-
 // console.log(sportFn ()); // undefined, because inner method parameter not provided
-
-
-
+// //console.log(sportFn ("Good good")); // good good, because inner method parameter has good good
  
 
 // // 4. 
 // function test(x){ 
-
 //     x = 10; 
-
 //     x++; 
-
 //     return function(){ 
-
 //         return x++; 
-
 //     } 
-
 // } 
-
 // console.log(test(2)()) // 11 - x is reassigned 10, then increment thre x++ which returns 11, ++x would return 12
  
  
 
 // // 5.
-// function car(){ 
-
+// function car(){
 //     let color = "white"; 
-
 //     function seat(){ 
-
 //         let color = "brown"; 
-//         console.log(color) [inner method is never called]
-
+//         console.log(color) //[inner method is never called]
 //     } 
-
 //     console.log(color)//white, color variable still assigned to white
-
 // } 
 
 // car("black") 
+// //let dddd = car("red");
+// //console.log(dddd)
 
 
 // 6. 
 // function department(){ 
-
 //     let numberOfDepartments = 5; 
 //     console.log(numberOfDepartments); // 5, obviously
 //     function software(){ 
-
 //         let language = "javascript"; 
 //         console.log(language) // [inner method is never called]
-
 //     } 
-
 //     console.log(language) // undefined, there's no variable was defined in outer scope
-
 // } 
-
 // department() 
 
 
-
- 
 
 // // 7. 
 // function department(language){ 
 
 //     let numberOfDepartments = 5; 
 //     console.log(numberOfDepartments) // 5, obviously
-//     function software(){ 
-
+//     function software(){
 //         let language = "javascript"; 
 //         console.log(language); // [inner method is never called]
-
 //     } 
-
+//     //software(); // javascript as we are calling inner method
 //     console.log(language) // java, this values passed to this function
-
 // } 
 
 // department("java"); 
+
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(0, 4);
+console.log(citrus);
 
 
 

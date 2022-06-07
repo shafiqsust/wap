@@ -26,4 +26,23 @@ for(let i=0 ; i < array2.length; i++){
     copiedArr[i] = array2[i];
 
 }
-console.log(copiedArr);
+console.log("copied array: ", copiedArr);
+
+
+let nobjArray =[{name:"a",age:20},{name:"b",age:14},{name:"c",age:40}];
+
+// Sum up the ages 
+console.log(nobjArray.reduce(function (accumulator,element,index,array){
+    // console.log(accumulator, element,index);
+    return accumulator+element.age;//return gets into accumulator
+},0));
+
+let narray = [];
+narray.push("hello")
+console.log("narray", narray);
+
+// return array of names
+console.log(nobjArray.reduce(function (accumulator,element,index,array){
+    accumulator.push(element.name);
+    return  accumulator;
+},[]));
