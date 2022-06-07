@@ -3,7 +3,7 @@
  * Array Exercises
  */
 //1.Find array of Even Numbers divisible by 4
-var arr = [2, 4,5,7,8,14,45,76];
+//var arr = [2, 4,5,7,8,14,45,76];
 let evenF = function findEven(array){
     //var evens = arr.filter(number => number % 4 == 0);
     //console.log('Even Numbers: ' + evens);
@@ -53,9 +53,9 @@ let sumOfOddOrEvenNums = function sum(numarr){
     return sum;
 }
 
-console.log("Evens: ",evenF(arr));
-console.log("Odds: ",oddF(arr));
-console.log("Sum= ",sumOfOddOrEvenNums(oddF(arr)));
+//console.log("Evens: ",evenF(arr));
+//console.log("Odds: ",oddF(arr));
+//console.log("Sum= ",sumOfOddOrEvenNums(oddF(arr)));
 
 //3. Find Unique Numbers in the Array
 let unqF = function findUnique(array1){
@@ -71,15 +71,15 @@ let unqF = function findUnique(array1){
     return uniqueArray;
 }
 //var myArray = ['a', 1, 'a', 2, '1', 5, 5 ,2];
-let myArray = [1,3,5,4,2,3,5]
-console.log("Unique Numbers: ",unqF(myArray));
+//let myArray = [1,3,5,4,2,3,5]
+//console.log("Unique Numbers: ",unqF(myArray));
 
 
 //4. Transform Array to print the type of elements in the Array
 
-let typearr = [50,"apple",{a:1}];
+//let typearr = [50,"apple",{a:1}];
 
-let typeF = function objectType(){
+let typeF = function objectType(typearr){
    
     let resultofTypes = [];
 
@@ -91,7 +91,7 @@ let typeF = function objectType(){
     return resultofTypes;
 }
 
-console.log("Type of elements: ",typeF());
+//console.log("Type of elements: ",typeF());
 
 //5. Destructure Array
 
@@ -109,20 +109,20 @@ let daF = function  destructureArray(arrx){
     return r;
 }
 
-console.log("Destructure Array : ",daF(typearr));
+//console.log("Destructure Array : ",daF(typearr));
 
 //6. Find Index of first odd number - (using array method and also not using array methods)
 // Using array method
 // function (return element > 0).
 let findOddIndexUsingMethod = function findFirtsOddIndexUsingMethod(array){
-var found = arr.findIndex((element)=> {
+var found = array.findIndex((element)=> {
     return element % 2 == 1;
 });
 
 return found;
 }
 
-console.log("Index of first odd number using array method:", findOddIndexUsingMethod(arr));
+//console.log("Index of first odd number using array method:", findOddIndexUsingMethod(arr));
 
 //without array method
 let findOddIndex = function findFirtsOddIndex(array){
@@ -133,11 +133,11 @@ let findOddIndex = function findFirtsOddIndex(array){
         }
         return -1;
 }
-console.log("Index of first odd number without array method:", findOddIndex(arr))
+//console.log("Index of first odd number without array method:", findOddIndex(arr))
 
 
 //7. Convert string to array and array to string. don’t use split() and toString()
-let string = "We are preparing for WAP Final exam"
+//let string = "We are preparing for WAP Final exam"
 
 //// using iterative
 let sttoAF =  function stringToArray(str) {
@@ -155,7 +155,7 @@ let sttoAF =  function stringToArray(str) {
     return arr;
 }
 
-console.log("Convert string to array: ", sttoAF(string)) 
+//console.log("Convert string to array: ", sttoAF(string)) 
 
 //Convert array to String
 
@@ -168,14 +168,14 @@ let arrtoStr = function arratToString(arr){
     return newstring;
 }
 
-const stringToarr = sttoAF(string);
-console.log("Convert array to string : ", arrtoStr(stringToarr)) 
+//const stringToarr = sttoAF(string);
+//console.log("Convert array to string : ", arrtoStr(stringToarr)) 
 
 /**
  * Object Arrays
  */
 
-let obj = {a:1, b:[1,2], c:"string", d:{x:1,y:2}};
+//let obj = {a:1, b:[1,2], c:"string", d:{x:1,y:2}};
 
 //1. Convert Object to array
 let coa = function convertObjectToArray(myobj){
@@ -208,7 +208,7 @@ let coa = function convertObjectToArray(myobj){
  }
  return objArr;
 }
-console.log("Convert object to array: ", coa(obj));
+//console.log("Convert object to array: ", coa(obj));
 
 //console.log(typeof({x:1,y:2}));
 
@@ -217,9 +217,9 @@ console.log("Convert object to array: ", coa(obj));
 // Get objects that has properties of name, ‘a’ 
 //[{a:1,b:2},{a:2,b:4]=> [{a:1},{a:2}]
 
-let objarr = [{a:1,b:2},{a:2,b:4}];
+//let objarr = [{a:1,b:2},{a:2,b:4}];
 
-function minifyObject(objarr){
+let minifyObject = function minifyObject(objarr){
     let resultArr = [];
     
     for(let elem of objarr){
@@ -245,7 +245,7 @@ function minifyObject(objarr){
     return resultArr;
 }
 
-console.log("Minified Object Array: ", minifyObject(objarr));
+//console.log("Minified Object Array: ", minifyObject(objarr));
 
 function mySort(x, y)
     {
@@ -253,7 +253,7 @@ function mySort(x, y)
     }
 
 //3. Get the Oldest person age 
-let persons = [{name:'Ram',age:20}, {name:'Lakshman',age:15}];
+//let persons = [{name:'Ram',age:20}, {name:'Lakshman',age:15}];
 
 let fo = function findOldestPerson(persons){
     
@@ -266,7 +266,7 @@ let fo = function findOldestPerson(persons){
 
 }
 
-console.log("Oldest person age", fo(persons));
+//console.log("Oldest person age", fo(persons));
 
 //4. Get the Youngest person name
 
@@ -279,7 +279,7 @@ let youngest_person_name  = sortArr[0].name;
 return youngest_person_name;
 }
 
-console.log("Youngest person name:", fy(persons));
+//console.log("Youngest person name:", fy(persons));
 
 //5. Find the person whose age is between 16 and 17 years.
 
@@ -309,7 +309,11 @@ let fyoung = function findYounger(persons){
     return resultArr;
 }
 
-console.log("Youngest person between 16 & 17:", fyoung(persons));
+//console.log("Youngest person between 16 & 17:", fyoung(persons));
 
-
-let myFunc = [{ef: evenF(arr)}, {of: oddF(arr)}, {fy:fyoung(persons)}]
+module.exports = {findEven: evenF, findOdd: oddF, sumOfNums:sumOfOddOrEvenNums,
+    findUnique:unqF, typeofElems:typeF, destuctureArr:daF,
+    findOddIndexUsingMethod:findOddIndexUsingMethod, findOddIndex:findOddIndex,
+    strToArr:sttoAF, arrtoStr:arrtoStr,
+    convertObjectToArray:coa, minifyObject:minifyObject,
+    findOldestPerson:fo, findYounger: fy, findYoungerInRange:fyoung };
