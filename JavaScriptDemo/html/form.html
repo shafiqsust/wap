@@ -78,37 +78,45 @@
             <div id="innerDIV">        
             
           </div>
-        </div><h2>My Form (DOM assignment using for Express)</h2>
-        <form id="myForm" action="add" method="post">
-            <h4>Input Text : </h4>
-            <input type="text" id="textfield" name="textfield" placeholder="Enter any text">
-            <h4 class="degree">Degree:</h4>
-            <input type="radio" name="degree" value="Graduate" id="radio1" class="radios">
-            <label class="ival">Graduate</label>
-            <input id="radio2" class="radios" name="degree" value="Post-Graduate" type="radio">
-            <label class="ival">Post-Graduate</label>
-            <input id="radio3" class="radios" name="degree" value="TM" type="radio">
-            <label class="ival">Meditation</label>
-            
-            <h4 id="courseheader">Select Courses:</h4>
-            <div id="chkBoxes">
-                <input id="chkbox1" class="chkbox" name="course" value="WAP" type="checkbox">
-                <label class="ival">WAP</label><input id="chkbox2" class="chkbox" name="course" value="WAA" type="checkbox">
-                <label class="ival">WAA</label><input id="chkbox3" class="chkbox" name="course" value="EA" type="checkbox">
-                <label class="ival">EA</label><input id="chkbox4" class="chkbox" name="course" value="SA" type="checkbox">
-                <label class="ival">SA</label>
-            </div>
-                <h4>Select Box:</h4>
-                <select id="sellist" name="sellist">
-                    <option value="Option1">Option 1</option>
-                    <option value="Option2">Option 2</option>
-                    <option value="Option3">Option 3</option>
-                </select>
-                <h4>Your message:</h4>
-                <textarea id="txtArea" name="txtArea" rows="5" cols="30"></textarea>
-                <br>
-                <input id="savebutton" class="btn" type="submit" value="Show user's input">
-        </form>        
+        </div>
+        <div style="float:left; width:60%">
+            <h2>My Form (DOM assignment using for Express)</h2>
+        </div>
+        <div style="float:left; width:40%; text-align: right;">
+            <a style="display: inline-block;" class="btn" href="/pagestat">Hit Counter</a>
+        </div>
+        <div style="clear: both; float:left;width: 100%;">
+            <form id="myForm" action="add" method="post">
+                <h4>Input Text : </h4>
+                <input type="text" id="textfield" name="textfield" placeholder="Enter any text">
+                <h4 class="degree">Degree:</h4>
+                <input type="radio" name="degree" value="Graduate" id="radio1" class="radios">
+                <label class="ival">Graduate</label>
+                <input id="radio2" class="radios" name="degree" value="Post-Graduate" type="radio">
+                <label class="ival">Post-Graduate</label>
+                <input id="radio3" class="radios" name="degree" value="TM" type="radio">
+                <label class="ival">Meditation</label>
+                
+                <h4 id="courseheader">Select Courses:</h4>
+                <div id="chkBoxes">
+                    <input id="chkbox1" class="chkbox" name="course" value="WAP" type="checkbox">
+                    <label class="ival">WAP</label><input id="chkbox2" class="chkbox" name="course" value="WAA" type="checkbox">
+                    <label class="ival">WAA</label><input id="chkbox3" class="chkbox" name="course" value="EA" type="checkbox">
+                    <label class="ival">EA</label><input id="chkbox4" class="chkbox" name="course" value="SA" type="checkbox">
+                    <label class="ival">SA</label>
+                </div>
+                    <h4>Select Box:</h4>
+                    <select id="sellist" name="sellist">
+                        <option value="Option1">Option 1</option>
+                        <option value="Option2">Option 2</option>
+                        <option value="Option3">Option 3</option>
+                    </select>
+                    <h4>Your message:</h4>
+                    <textarea id="txtArea" name="txtArea" rows="5" cols="30"></textarea>
+                    <br>
+                    <input id="savebutton" class="btn" type="submit" value="Show user's input">
+            </form>
+        </div>      
     
     </body>
 </html>
