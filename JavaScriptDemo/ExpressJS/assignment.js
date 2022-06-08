@@ -33,7 +33,7 @@ app.get('/add', (req, res,next) =>{
 app.post('/add', (req, res,next) =>{
     console.log("Total hits: ", ++counter);
     storedData = req.body;
-    //console.log("in post od add", storedData);
+    console.log("in post od add", storedData);
     res.redirect('/view')
     //res.sendFile(path.join(__dirname, "./","views","view.html"))
     
@@ -43,11 +43,23 @@ app.post('/add', (req, res,next) =>{
 app.get('/view', (req, res,next) =>{
     console.log("Total hits: ", ++counter);
     //console.log("Here in post:"+ storedData.textfield);
+        
+    if (! req.body.textfield) {
+        res.redirect('/error')
+    }
+
+    let  coursesArr = storedData.course;
+
+    let chtml ='';
+    coursesArr.forEach(element => {
+    //console.log(element);
+     chtml += element + ", "
+    });
    res.send("<div>User Input:"+ storedData.textfield+ "</div>"
-   + "<div>Message:"+ storedData.txtArea + "</div>"
    + "<div>Degree:"+ storedData.degree+ "</div>"
-   + "<div>Courses:"+ storedData.course + "</div>"
-   + "<div>Select Box:"+ storedData.sellist+ "</div>")
+   + "<div>Courses:"+ chtml + "</div>"
+   + "<div>Select Box:"+ storedData.sellist+ "</div>"   
+   + "<div>Message:"+ storedData.txtArea + "</div>")
    //res.send("<label>Message:"+ storedData.txtArea+ "</label>")
     
 });
@@ -58,10 +70,23 @@ app.get('/view', (req, res,next) =>{
 //     res.redirect("back")
 // });
 
-
+//6. Stats -> Hits of each page
+app.get('/pagestat', (req, res,next) =>{    
+    //console.log("Total hits: ", ++counter);    
+   res.send("<div>Total hits: "+ ++counter + "</div>")
+  
+    
+});
 
 
 //4. Error html
+app.get('/error', function(err, req,res, next){
+    console.log("Total hits: ", ++counter);
+    //console.log('Error Handler 2');
+    res.sendFile(path.join(__dirname, 'views', 'error.html'));
+});
+
+
 //5. 404 Not found page 
 app.use((req, res, next) => {
     console.log("Total hits: ", ++counter);
@@ -69,5 +94,3 @@ app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
-//6. Stats -> Hits of each page
-//console.log("Total hits: ", ++counter);
