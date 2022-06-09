@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000
+const port = 80
 
 var path = require("path")
 
@@ -39,7 +39,7 @@ app.post('/add', (req, res,next) =>{
     console.log("Total hits: ", ++counter);
     ++add;
     storedData = req.body;
-    console.log("in post od add", storedData);
+    //console.log("in post od add", storedData);
     res.redirect('/view')
     //res.sendFile(path.join(__dirname, "./","views","view.html"))
     
@@ -87,7 +87,7 @@ app.get('/pagestat', (req, res,next) =>{
    res.send("<h1>Total hits: "+ counter + "</h1>"+
    "<ul>"
    + "<li> Add Page: "+ add+"</li>"
-   + "<li> View Page: "+ view+"</li>"
+   + "<li> View Page: "+ view +"</li>"
    + "<li> 404 Page: "+ nf+"</li>"
    + "<li> Error Page: "+ er+"</li>"
    + "<li> Status Page: "+ st+"</li>"

@@ -1,0 +1,49 @@
+0 verbose cli [
+0 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+0 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+0 verbose cli   'view',
+0 verbose cli   '--json',
+0 verbose cli   'ejs',
+0 verbose cli   'description',
+0 verbose cli   'dist-tags.latest',
+0 verbose cli   'homepage',
+0 verbose cli   'version'
+0 verbose cli ]
+1 info using npm@8.5.5
+2 info using node@v16.15.0
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 2ms
+5 timing config:load:file:C:\Program Files\nodejs\node_modules\npm\npmrc Completed in 3ms
+6 timing config:load:builtin Completed in 4ms
+7 timing config:load:cli Completed in 3ms
+8 timing config:load:env Completed in 1ms
+9 verbose config error loading project config [Error: EISDIR: illegal operation on a directory, read] {
+9 verbose config   errno: -4068,
+9 verbose config   code: 'EISDIR',
+9 verbose config   syscall: 'read'
+9 verbose config }
+10 timing config:load:file:d:\MIU ComPro\WAP-Sridevi\Demo\JavaScriptDemo\ExpressJS\.npmrc Completed in 2ms
+11 timing config:load:project Completed in 6ms
+12 timing config:load:file:C:\Users\sopno\.npmrc Completed in 0ms
+13 timing config:load:user Completed in 0ms
+14 timing config:load:file:C:\Users\sopno\AppData\Roaming\npm\etc\npmrc Completed in 1ms
+15 timing config:load:global Completed in 2ms
+16 timing config:load:validate Completed in 0ms
+17 timing config:load:credentials Completed in 2ms
+18 timing config:load:setEnvs Completed in 1ms
+19 timing config:load Completed in 22ms
+20 timing npm:load:configload Completed in 22ms
+21 timing npm:load:setTitle Completed in 1ms
+22 timing config:load:flatten Completed in 5ms
+23 timing npm:load:display Completed in 6ms
+24 verbose logfile d:\MIU ComPro\WAP-Sridevi\Demo\JavaScriptDemo\ExpressJS\.npmrc\_logs\2022-06-09T08_30_02_073Z-debug-0.log
+25 timing npm:load:logFile Completed in 14ms
+26 timing npm:load:timers Completed in 0ms
+27 timing npm:load:configScope Completed in 0ms
+28 timing npm:load Completed in 44ms
+29 silly logfile start cleaning logs, removing 2 files
+30 http fetch GET 200 https://registry.npmjs.org/ejs 81197ms (cache stale)
+31 timing command:view Completed in 81220ms
+32 verbose exit 0
+33 timing npm Completed in 81910ms
+34 info ok

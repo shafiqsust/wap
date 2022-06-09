@@ -23,7 +23,7 @@ app.get('/', (req, res, next) => {
 });
     
 app.get('/add', (req,res, next) =>{
-    console.log( counter++);
+    console.log( ++counter);
     res.send('<from action="/product" action="post"><input type="text" name="searchkey"> <input type="submit" value="Submit"></form>')
 })
 

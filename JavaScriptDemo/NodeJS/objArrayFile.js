@@ -180,7 +180,11 @@ let arrtoStr = function arratToString(arr){
 //1. Convert Object to array
 let coa = function convertObjectToArray(myobj){
  let objentries =  Object.entries(myobj);
+
+ //console.log("objentries= ",objentries);
+
  let objArr = [];
+
  for(let [key,value] of objentries){
     let x;
     if(Array.isArray(value)){
@@ -215,7 +219,7 @@ let coa = function convertObjectToArray(myobj){
 
 //2. Minify Object
 // Get objects that has properties of name, ‘a’ 
-//[{a:1,b:2},{a:2,b:4]=> [{a:1},{a:2}]
+//[{a:1,b:2},{a:2,b:4}]=> [{a:1},{a:2}]
 
 //let objarr = [{a:1,b:2},{a:2,b:4}];
 
