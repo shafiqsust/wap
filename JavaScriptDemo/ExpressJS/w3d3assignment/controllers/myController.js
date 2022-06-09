@@ -1,3 +1,4 @@
+var path = require("path")
 
 const index = ((req, res) => {
 
@@ -83,6 +84,12 @@ const viewCookies = ((req, res, next) => {
         message: req.cookies.myMessage })
 })
 
+//5. 404 Not found page 
+const error404 = ((req, res, next) => {   
+    //console.log('Error Handler 2');
+    res.status(404).sendFile(path.join(__dirname, "../", 'views', '404.html'));
+});
+
 
 module.exports = {
     index,
@@ -91,5 +98,6 @@ module.exports = {
     authUser,
     saveCookies,
     getCookies,
-    viewCookies
+    viewCookies,
+    error404
 }

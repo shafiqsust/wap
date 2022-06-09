@@ -6,7 +6,7 @@ const port = 3000
 
 app.use(cookieParser())
 
-var path = require("path")
+//var path = require("path")
 var ejs = require("ejs")
 
 

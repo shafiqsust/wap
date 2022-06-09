@@ -1,6 +1,7 @@
 var express = require('express');
 //var router = express.Router();
 
+
 var cookieController = require('../controllers/myController');
 
 const options = {
@@ -19,5 +20,7 @@ router.post('/process_login', cookieController.authUser);
 router.get('/cookie', cookieController.getCookies); // show the user input form
 router.post('/cookie', cookieController.saveCookies); //Save cookies
 router.get('/view', cookieController.viewCookies); // Display captures data/cookies
+
+router.use(cookieController.error404);
 
 module.exports = router;
